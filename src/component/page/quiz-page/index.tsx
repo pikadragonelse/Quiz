@@ -73,6 +73,9 @@ export const QuizPage = ({ data }: QuizPage) => {
                     <div className="difficulty">
                         Difficulty: &nbsp;{dataShow.difficulty}
                     </div>
+                    <div className="difficulty">
+                        Category: &nbsp;{dataShow.category}
+                    </div>
                 </div>
                 <div className="question">{dataShow.question}</div>
                 <FormAnswer
