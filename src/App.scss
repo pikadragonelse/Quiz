@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+  // Color
+  --primary-color: #32c1ff;
+  --sub-color: #2ba2d5;
+
+  --text-color: #fefefe;
+
+  // font-size
+  --font-s-sm: 1.2rem;
+  --font-s-md: 1.8rem;
+  --font-s-lg: 2.2rem;
+
+  // spacing
+  --spacing-vr-sm: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-md-1: 30px;
+  --spacing-lg: 40px;
+
+  // border-radius
+  --border-r-sm: 5px;
+  --border-r-md: 10px;
+  --border-r-lg: 20px;
+  --border-r-vr-lg: 999px;
+
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}

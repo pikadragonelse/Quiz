@@ -1,0 +1,39 @@
+.quiz {
+    font-size: var(--font-s-md);
+
+    .quiz-container {
+        display: flex;
+        width: 1200px;
+        flex-direction: column;
+        gap: var(--spacing-md);
+        align-items: center;
+    }
+
+    .sub-inf {
+        align-self: flex-start;
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+
+        .difficulty {
+            text-transform: capitalize
+        }
+
+        .timer {
+            padding: var(--spacing-sm);
+            border: 1px solid var(--primary-color);
+            border-radius: var(--border-r-md);
+            display: flex;
+            gap: var(--spacing-vr-sm);
+        }
+    }
+
+
+
+    .question {
+        padding: calc( 2 * var(--spacing-lg));
+        border: 1px solid var(--primary-color);
+        border-radius: var(--border-r-md);
+        width: 100%;
+    }
+}

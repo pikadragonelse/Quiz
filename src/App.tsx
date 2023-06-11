@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.scss";
+import { HomePage } from "./component/page/home-page";
+import { Routes, Route } from "react-router-dom";
+import { QuizPage } from "./component/page/quiz-page";
+import { ResultPage } from "./component/page/result-page";
+import { QuizResponse } from "./model/quiz-list";
+import { Quiz } from "./model/quiz";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [data, setData] = useState<Array<Quiz>>([]);
+    const getData = () => {
+        fetch("https://opentdb.com/api.php?amount=5")
+            .then((response) => response.json())
+            .then((data: QuizResponse) => {
+                data.results.forEach((item) => {
+                    item.question = item.question.replace(
+                        /[^\w\s]/gi,
+                        ""
+                    ) as any;
+
+                    item.correct_answer = item.correct_answer.replace(
+                        /[^\w\s]/gi,
+                        ""
+                    ) as any;
+                    item.incorrect_answers.forEach(
+                        (item: string) =>
+                            (item = item.replace(/[^\w\s]/gi, "") as any)
+                    );
+                });
+                localStorage.setItem("data", JSON.stringify(data.results));
+                setData(data.results);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
+    useEffect(() => {
+        getData();
+    }, []);
+
+    return (
+        <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/quiz/:idQuiz/*" element={<QuizPage data={data} />} />
+            <Route path="/result" element={<ResultPage />} />
+        </Routes>
+    );
 }
 
 export default App;

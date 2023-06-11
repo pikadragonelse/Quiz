@@ -1,0 +1,20 @@
+.answer {
+    padding: var(--spacing-md);
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-r-md);
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+
+    .radio {
+        // display: none;
+        opacity: 0;
+    }
+
+    &:hover {
+        background-color: var(--primary-color);
+    }
+}
+
+.answer.active {
+    background-color: var(--primary-color);
+}
